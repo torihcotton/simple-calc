@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import
 
 class App extends Component {
 
@@ -82,10 +83,15 @@ class App extends Component {
         </div></div>
           
           
-      
-       <h3 style={{ padding: "10px 20px", textAlign: "center", color: "#bf5700"}}>Input Values:</h3>
+ 
+       <h3 style={{ padding: "10px 50px", textAlign: "center", color: "#bf5700"}}>Select your 3d printing material:
 	
- <h4 style={{ padding: "15px 325px", textAlign: "justified", color: "#bf5700"}}>
+<label> Input values: </label></h3>
+       
+
+<h4 style={{ padding: "10px 20px", textAlign: "center", color: "#bf5700", headersize: "large"}}>Input Values:</h4>
+	
+ <h5 style={{ padding: "15px 325px", textAlign: "justified", color: "#bf5700"}}>
 
   <form onSubmit={this.submitMe}>
             <label>
@@ -110,7 +116,7 @@ It is currently  {this.state.time}. Your print, {this.state.name}, will cost. Yo
              
             <input type="submit" value="Submit"/>
           </form>
-</h4>
+</h5>
 
       </div>
 
