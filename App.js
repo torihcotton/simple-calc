@@ -5,7 +5,7 @@ class App extends Component {
 
   constructor(props) {
      super(props);
-     this.state = { name: 'Guest', weight: 90, height: 180, bmi: 27, message: '', optimalweight: '', time: new Date().toLocaleTimeString() };
+     this.state = { name: 'example.stl', weight: 90, volume: 180, bmi: 27, message: '', optimalweight: '', time: new Date().toLocaleTimeString() };
      this.submitMe = this.submitMe.bind(this);
      this.volumechange = this.volumechange.bind(this);
      this.weightchange = this.weightchange.bind(this);
@@ -77,11 +77,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>FAB LAB cost calculator</h2>
+          <h2 style={{ padding: "10px 20px", textAlign: "left", color: "#bf5700"}}>FAB LAB cost calculator</h2>
         </div>
           <form onSubmit={this.submitMe}>
             <label>
-              Please enter your name
+              Enter file name:
             </label>
             <input type="text" name="name" value={this.state.name} onBlur={this.blur} onChange={this.change}   />
              <label>
@@ -92,7 +92,7 @@ class App extends Component {
              Enter your weight in kg : 
             </label>
             <input type="text" name="weight" value={this.state.weight} onChange={this.weightchange}    />
-            <label>{this.state.checked} Hello {this.state.name}, How are you my friend? It's currently  {this.state.time} where you are living. Your BMI is {this.state.bmi} </label>
+            <label>{this.state.checked} It is currently  {this.state.time}. Your print, {this.state.name}, will cost. Your BMI is {this.state.bmi} </label>
               <label>{this.state.message}</label>
               <label>{this.state.optimalweight}</label>
              
