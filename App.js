@@ -81,15 +81,15 @@ class App extends Component {
           <h2 style={{ padding: "10px 20px", textAlign: "right", color: "#bf5700"}}>FAB LAB cost calculator</h2>
         </div></div>
           
+          
+      
        <h3 style={{ padding: "10px 20px", textAlign: "center", color: "#bf5700"}}>Input Values:</h3>
-	  
-
-
- <h4 style={{ padding: "0px 0px", textAlign: "right", color: "#bf5700"}}>
+	
+ <h4 style={{ padding: "15px 325px", textAlign: "justified", color: "#bf5700"}}>
 
   <form onSubmit={this.submitMe}>
             <label>
-              Enter file name:
+             Enter file name:
             </label>
             <input type="text" name="name" value={this.state.name} onBlur={this.blur} onChange={this.change}   />
              <label>
@@ -100,14 +100,18 @@ class App extends Component {
              Enter your weight in kg : 
             </label>
             <input type="text" name="weight" value={this.state.weight} onChange={this.weightchange}    />
-            <label>{this.state.checked} It is currently  {this.state.time}. Your print, {this.state.name}, will cost. Your BMI is {this.state.bmi} </label>
+            <label>{this.state.checked} 
+
+
+
+It is currently  {this.state.time}. Your print, {this.state.name}, will cost. Your BMI is {this.state.bmi} </label>
               <label>{this.state.message}</label>
               <label>{this.state.optimalweight}</label>
              
             <input type="submit" value="Submit"/>
           </form>
-
 </h4>
+
       </div>
 
     );
