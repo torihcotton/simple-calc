@@ -7,7 +7,7 @@ class App extends Component {
      super(props);
      this.state = { name: 'Guest', weight: 90, height: 180, bmi: 27, message: '', optimalweight: '', time: new Date().toLocaleTimeString() };
      this.submitMe = this.submitMe.bind(this);
-     this.heightchange = this.heightchange.bind(this);
+     this.volumechange = this.volumechange.bind(this);
      this.weightchange = this.weightchange.bind(this);
      this.change = this.change.bind(this);  
      this.ticker = this.ticker.bind(this); 
@@ -16,8 +16,8 @@ class App extends Component {
   }
 
 
-  heightchange(e){
-    this.setState({height: e.target.value});
+  volumechange(e){
+    this.setState({volume: e.target.value});
     e.preventDefault();
   }
 
@@ -31,10 +31,10 @@ class App extends Component {
 
   calculateBMI(){
 
-      var heightSquared = (this.state.height/100  * this.state.height/100);
-      var bmi = this.state.weight / heightSquared;
-      var low = Math.round(18.5 * heightSquared);                                                         
-      var high = Math.round(24.99 * heightSquared);    
+      var volumeSquared = (this.state.volume/100  * this.state.volume/100);
+      var bmi = this.state.weight / volumeSquared;
+      var low = Math.round(18.5 * volumeSquared);                                                         
+      var high = Math.round(24.99 * volumeSquared);    
       var message = "";
       if( bmi >= 18.5  && bmi <= 24.99 ){
           message = "You are in a healthy weight range";
@@ -75,3 +75,32 @@ class App extends Component {
 
   render() {
     return (
+      <div className="App">
+        <div className="App-header">
+          <h2>FAB LAB cost calculator</h2>
+        </div>
+          <form onSubmit={this.submitMe}>
+            <label>
+              Please enter your name
+            </label>
+            <input type="text" name="name" value={this.state.name} onBlur={this.blur} onChange={this.change}   />
+             <label>
+             Enter the volume of your print: 
+            </label>
+            <input type="text" name="volume" value={this.state.volume} onBlur={this.blur} onChange={this.volumechange}   />
+             <label>
+             Enter your weight in kg : 
+            </label>
+            <input type="text" name="weight" value={this.state.weight} onChange={this.weightchange}    />
+            <label>{this.state.checked} Hello {this.state.name}, How are you my friend? It's currently  {this.state.time} where you are living. Your BMI is {this.state.bmi} </label>
+              <label>{this.state.message}</label>
+              <label>{this.state.optimalweight}</label>
+             
+            <input type="submit" value="Submit"/>
+          </form>
+      
+      </div>
+    );
+  }
+}
+export default App;
