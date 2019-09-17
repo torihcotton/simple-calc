@@ -1,3 +1,47 @@
+import React, { Component } from 'react';
+import './App.css';
+
+class App extends Component {
+
+  constructor(props) {
+     super(props);
+     this.state = { name: 'example.stl', weight: 90, volume: 180, bmi: 27, message: '', optimalweight: '', time: new Date().toLocaleTimeString() };
+     this.submitMe = this.submitMe.bind(this);
+     this.volumechange = this.volumechange.bind(this);
+     this.weightchange = this.weightchange.bind(this);
+     this.change = this.change.bind(this);  
+     this.ticker = this.ticker.bind(this); 
+     this.blur = this.blur.bind(this); 
+     this.calculateBMI = this.calculateBMI.bind(this); 
+  }
+
+
+  volumechange(e){
+    this.setState({volume: e.target.value});
+    e.preventDefault();
+  }
+
+  blur(e){
+   this.calculateBMI();
+  }
+   weightchange(e){
+    this.setState({weight: e.target.value});
+    e.preventDefault();
+  }
+
+  calculateBMI(){
+
+      var volumeSquared = (this.state.volume/100  * this.state.volume/100);
+      var bmi = this.state.weight / volumeSquared;
+      var low = Math.round(18.5 * volumeSquared);                                                         
+      var high = Math.round(24.99 * volumeSquared);    
+      var message = "";
+      if( bmi >= 18.5  && bmi <= 24.99 ){
+          message = "You are in a healthy weight range";
+      }
+      else if(bmi >= 25 && bmi <= 29.9){
+        message = "You are overweight";
+      }
       else if(bmi >= 30){
           message ="You are obese";
       }
@@ -37,8 +81,13 @@
           <h2 style={{ padding: "10px 20px", textAlign: "right", color: "#bf5700"}}>FAB LAB cost calculator</h2>
         </div></div>
           
-       <h3 style={{ padding: "10px 20px", textAlign: "center", color: "#bf5700"}}>Input Values:
-	    <form onSubmit={this.submitMe}>
+       <h3 style={{ padding: "10px 20px", textAlign: "center", color: "#bf5700"}}>Input Values:</h3>
+	  
+
+
+ <h4 style={{ padding: "0px 0px", textAlign: "right", color: "#bf5700"}}>
+
+  <form onSubmit={this.submitMe}>
             <label>
               Enter file name:
             </label>
@@ -57,7 +106,8 @@
              
             <input type="submit" value="Submit"/>
           </form>
- </h3>
+
+</h4>
       </div>
 
     );
