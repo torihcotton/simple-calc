@@ -116,13 +116,12 @@ class App extends Component {
 	    <input type="var" name="cost" value={this.state.cost} onBlur={this.blur} onChange={this.costchange}   />
 
 	    <label>{this.state.checked}   </label>
-<label>
-It is currently  {this.state.time}. Your print, {this.state.name}, will cost ${this.state.total}.</label>
 </form>
 </h5>
  <h6 style={{ padding: "10px 50px", fontSize:'14px', textAlign: "justified", color: "#bf5700"}}>
 <label>{this.state.message}</label>
-             
+             <label>
+It is currently  {this.state.time}. Your print, {this.state.name}, will cost ${this.state.total}.</label>
             <input type="submit" value="Submit"/>
           
 </h6>
