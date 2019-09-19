@@ -5,7 +5,7 @@ class App extends Component {
 
   constructor(props) {
      super(props);
-     this.state = { name: 'example.stl', volume: 180, total: 27, message: '', optimalweight: '', time: new Date().toLocaleTimeString() };
+     this.state = { name: 'example.stl', volume: 60, total: 25, message: '', time: new Date().toLocaleTimeString() };
      this.submitMe = this.submitMe.bind(this);
      this.volumechange = this.volumechange.bind(this);
      this.change = this.change.bind(this);  
@@ -30,17 +30,8 @@ class App extends Component {
       var volumeSquared = (this.state.volume/100  * this.state.volume/100);
       var total= this.state.weight * volumeSquared;
       var message = "";
-      if( total >= 18.5  && total <= 24.99 ){
-          message = "You are in a healthy weight range";
-      }
-      else if(total >= 25 && total <= 29.9){
-        message = "You are overweight";
-      }
-      else if(total >= 30){
-          message ="You are obese";
-      }
-      else if(total < 18.5){
-        message = "You are under weight";
+      if( total < 1.00 ){
+          message = "Error, minumum cost for a print is $1.00";
       }
       this.setState({message: message});     
       this.setState({total: Math.round(total * 100) / 100});   
@@ -98,7 +89,7 @@ class App extends Component {
 
 
 
-It is currently  {this.state.time}. Your print, {this.state.name}, will cost. Your total is {this.state.total} </label>
+It is currently  {this.state.time}. Your print, {this.state.name}, will cost {this.state.total}.</label>
               <label>{this.state.message}</label>
              
             <input type="submit" value="Submit"/>
