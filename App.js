@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   costchange(e){
-    this.setState({volume: e.target.value});
+    this.setState({cost: e.target.value});
     e.preventDefault();
   }
 
@@ -36,7 +36,7 @@ class App extends Component {
       var total = (this.state.volume * this.state.cost);
       var message = "";
       if( total < 1.00 ){
-          message = "Error, minumum cost for a print is $1.00";
+          message = " Error, minumum cost for a print is $1.00 ";
       }
       this.setState({message: message});     
       this.setState({total: Math.round(total * 100) / 100});   
@@ -91,7 +91,11 @@ class App extends Component {
             </label>
             <input type="text" name="volume" value={this.state.volume} onBlur={this.blur} onChange={this.volumechange}   />
             <label>{this.state.checked}   </label>
+ 	    <label>
+             Enter the cost per unit: 
+            </label>
 	    <input type="var" name="cost" value={this.state.cost} onBlur={this.blur} onChange={this.costchange}   />
+	    <label>{this.state.checked}   </label>
 
 
 <label>
