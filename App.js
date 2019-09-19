@@ -118,12 +118,13 @@ class App extends Component {
 	    <label>{this.state.checked}   </label>
 </form>
 </h5>
- <h6 style={{ padding: "10px 50px", fontSize:'14px', textAlign: "center", color: "#bf5700"}}>
+ <h6 style={{ padding: "15px 325px", fontWeight: 'bold', textAlign: "center", color: "#bf5700"}}>
 
-<label>It is currently  {this.state.time}. Your print, {this.state.name}, will cost ${this.state.total}.</label>
             <input type="submit" value="Submit"/> 
 </h6>
-<h7 style={{ padding: "10px 50px", fontWeight: 'bold', fontSize:'20px', textAlign: "center", color: "#bf5700"}}>
+ <h7 style={{ padding: "15px 50px", fontWeight: 'bold', fontSize:'14px', textAlign: "justified", color: "#bf5700"}}>
+
+<label>It is currently  {this.state.time}. Your print, {this.state.name}, will cost ${this.state.total}.</label>
 
 <label>{this.state.message}</label>
           
