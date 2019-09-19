@@ -79,10 +79,11 @@ class App extends Component {
     
 
 
-
-{/* button component */}
-
-  
+<button onClick={() => {
+  this.setState({ name: "James"});
+}}>
+  Click me!
+</button>
 
                 <button onclick="activateLasers()">
   		Fridge
