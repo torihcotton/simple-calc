@@ -5,14 +5,14 @@ class App extends Component {
 
   constructor(props) {
      super(props);
-     this.state = { name: 'example.stl', volume: 60, total: 25, message: '', time: new Date().toLocaleTimeString() };
+     this.state = { name: 'example.stl', cost: 2.50, volume: 60, total: 25, message: '', time: new Date().toLocaleTimeString() };
      this.submitMe = this.submitMe.bind(this);
      this.volumechange = this.volumechange.bind(this);
      this.change = this.change.bind(this);  
      this.ticker = this.ticker.bind(this); 
      this.blur = this.blur.bind(this); 
      this.calculatetotal = this.calculatetotal.bind(this); 
-     this.volumechange = this.volumechange.bind(this);
+     this.costchange = this.costchange.bind(this);
   }
 
 
@@ -21,14 +21,19 @@ class App extends Component {
     e.preventDefault();
   }
 
+  costchange(e){
+    this.setState({volume: e.target.value});
+    e.preventDefault();
+  }
+
+
   blur(e){
    this.calculatetotal();
   }
 
   calculatetotal(){
 
-      var volumeSquared = (this.state.volume/100  * this.state.volume/100);
-      var total= this.state.weight * volumeSquared;
+      var total = (this.state.volume * this.state.cost);
       var message = "";
       if( total < 1.00 ){
           message = "Error, minumum cost for a print is $1.00";
@@ -85,10 +90,11 @@ class App extends Component {
              Enter the volume of your print: 
             </label>
             <input type="text" name="volume" value={this.state.volume} onBlur={this.blur} onChange={this.volumechange}   />
-            <label>{this.state.checked} 
+            <label>{this.state.checked}   </label>
+	    <input type="var" name="cost" value={this.state.cost} onBlur={this.blur} onChange={this.costchange}   />
 
 
-
+<label>
 It is currently  {this.state.time}. Your print, {this.state.name}, will cost {this.state.total}.</label>
               <label>{this.state.message}</label>
              
