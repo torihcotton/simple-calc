@@ -75,33 +75,32 @@ class App extends Component {
           
           
  
-       <h3 style={{ padding: "10px 50px", textAlign: "center", color: "#bf5700"}}>Select your 3d printing material:
+       <h3 style={{ padding: "10px 50px", textAlign: "center", color: "#bf5700"}}>Select your machine:
     
 
 
 <button onClick={() => {
-  this.setState({ name: "James"});
+  this.setState({ cost: 2.50});
 }}>
-  Click me!
+  Dimension Elite 3D
 </button>
 
-                <button onclick="activateLasers()">
-  		Fridge
+<button onClick={() => {
+  this.setState({ cost: 2.50});
+}}>
+  Project 460+ Gypsum Printer
+</button>
 
-		</button>
-		<button onclick="activateLasers()">
-  		Powder
-		</button>
-
- 		<button onclick="activateLasers()">
- 		PLA
-		</button>
+<button onClick={() => {
+  this.setState({ cost: 0.05});
+}}>
+  TAZBOT PLA
+</button>
 
      
 <label> Input values: </label></h3>
        
 
-<h4 style={{ padding: "10px 20px", textAlign: "center", color: "#bf5700", headersize: "large"}}>Input Values:</h4>
  <h5 style={{ padding: "15px 325px", textAlign: "justified", color: "#bf5700"}}>
 
   <form onSubmit={this.submitMe}>
@@ -119,7 +118,7 @@ class App extends Component {
 	    <input type="var" name="cost" value={this.state.cost} onBlur={this.blur} onChange={this.costchange}   />
 	    <label>{this.state.checked}   </label>
 <label>
-It is currently  {this.state.time}. Your print, {this.state.name}, will cost {this.state.total}.</label>
+It is currently  {this.state.time}. Your print, {this.state.name}, will cost ${this.state.total}.</label>
               <label>{this.state.message}</label>
              
             <input type="submit" value="Submit"/>
