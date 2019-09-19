@@ -82,20 +82,20 @@ class App extends Component {
 
 {/* button component */}
 
+  
 
-            <div>
                 <button onclick="activateLasers()">
   		Fridge
+
 		</button>
 		<button onclick="activateLasers()">
   		Powder
 		</button>
+
  		<button onclick="activateLasers()">
  		PLA
 		</button>
-            </div>
 
-{/* end button component */}
      
 <label> Input values: </label></h3>
        
