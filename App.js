@@ -39,7 +39,7 @@ class App extends Component {
       var total = (this.state.volume * this.state.cost);
       var message = "";
       if( total < 1.00 ){
-          message = " Error, minumum cost for a print is $1.00 ";
+          message = " Error, minumum cost for a print is $1.00 "; 
       }
       this.setState({message: message});     
       this.setState({total: Math.round(total * 100) / 100});   
@@ -70,12 +70,11 @@ class App extends Component {
       <div className="App">
        <div style={{ backgroundColor: "#333f48", width: "300px", maxHeight: "250px",}}>
 	 <div className="App-header">
-          <h2 style={{ padding: "10px 20px", textAlign: "right", color: "#bf5700"}}>FAB LAB cost calculator</h2>
+          <h2 style={{ padding: "10px 20px", textAlign: "right", color: "#bf5700"}}>Digital Fabrication - 3D Printing Cost Calculator</h2>
         </div></div>
-          
-          
+             
  
-       <h3 style={{ padding: "10px 50px", textAlign: "center", color: "#bf5700"}}>Select your machine:
+       <h3 style={{ padding: "10px 50px", fontSize:'18px', textAlign: "center", color: "#bf5700"}}>Select your machine: </h3>
     
 
 
@@ -94,11 +93,10 @@ class App extends Component {
 <button onClick={() => {
   this.setState({ cost: 0.05});
 }}>
-  TAZBOT PLA
+  Lulzbot TAZ
 </button>
 
-     
-<label> Input values: </label></h3>
+<h4 style={{ padding: "10px 50px", fontSize:'18px', textAlign: "center", color: "#bf5700"}}>Input Values: </h4>
        
 
  <h5 style={{ padding: "15px 325px", textAlign: "justified", color: "#bf5700"}}>
@@ -116,10 +114,11 @@ class App extends Component {
              Enter the cost per unit: 
             </label>
 	    <input type="var" name="cost" value={this.state.cost} onBlur={this.blur} onChange={this.costchange}   />
+
 	    <label>{this.state.checked}   </label>
 <label>
 It is currently  {this.state.time}. Your print, {this.state.name}, will cost ${this.state.total}.</label>
-              <label>{this.state.message}</label>
+<label>{this.state.message}</label>
              
             <input type="submit" value="Submit"/>
           </form>
