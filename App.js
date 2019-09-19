@@ -39,7 +39,7 @@ class App extends Component {
       var total = (this.state.volume * this.state.cost);
       var message = "";
       if( total < 1.00 ){
-          message = " Error, minumum cost for a print is $1.00 "; 
+          message = " Error! The minumum cost for a print is $1.00 "; 
       }
       this.setState({message: message});     
       this.setState({total: Math.round(total * 100) / 100});   
@@ -74,7 +74,7 @@ class App extends Component {
         </div></div>
              
  
-       <h3 style={{ padding: "10px 50px", fontSize:'18px', textAlign: "center", color: "#bf5700"}}>Select your machine: </h3>
+       <h3 style={{ padding: "10px 50px", fontSize:'18px', textAlign: "center", color: "#bf5700"}}>Select Your Machine: </h3>
     
 
 
@@ -101,7 +101,7 @@ class App extends Component {
 
  <h5 style={{ padding: "15px 325px", textAlign: "justified", color: "#bf5700"}}>
 
-  <form onSubmit={this.submitMe}>
+ <form onSubmit={this.submitMe}>
             <label> Enter file name:
             </label>
             <input type="text" name="name" value={this.state.name} onBlur={this.blur} onChange={this.change}   />
@@ -118,11 +118,14 @@ class App extends Component {
 	    <label>{this.state.checked}   </label>
 <label>
 It is currently  {this.state.time}. Your print, {this.state.name}, will cost ${this.state.total}.</label>
+</form>
+</h5>
+ <h6 style={{ padding: "10px 50px", fontSize:'14px', textAlign: "justified", color: "#bf5700"}}>
 <label>{this.state.message}</label>
              
             <input type="submit" value="Submit"/>
-          </form>
-</h5>
+          
+</h6>
 
       </div>
 
