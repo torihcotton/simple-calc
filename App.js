@@ -3,9 +3,10 @@ import './App.css';
 
 class App extends Component {
 
+
   constructor(props) {
      super(props);
-     this.state = { name: 'example.stl', cost: 2.50, volume: 60, total: 25, message: '', time: new Date().toLocaleTimeString() };
+     this.state = { name: 'example.stl', cost: 2.50, volume: 10, total: 25, message: '', time: new Date().toLocaleTimeString() };
      this.submitMe = this.submitMe.bind(this);
      this.volumechange = this.volumechange.bind(this);
      this.change = this.change.bind(this);  
@@ -13,6 +14,8 @@ class App extends Component {
      this.blur = this.blur.bind(this); 
      this.calculatetotal = this.calculatetotal.bind(this); 
      this.costchange = this.costchange.bind(this);
+
+
   }
 
 
@@ -73,20 +76,38 @@ class App extends Component {
           
  
        <h3 style={{ padding: "10px 50px", textAlign: "center", color: "#bf5700"}}>Select your 3d printing material:
-	
+    
+
+
+
+{/* button component */}
+
+
+            <div>
+                <button onclick="activateLasers()">
+  		Fridge
+		</button>
+		<button onclick="activateLasers()">
+  		Powder
+		</button>
+ 		<button onclick="activateLasers()">
+ 		PLA
+		</button>
+            </div>
+
+{/* end button component */}
+     
 <label> Input values: </label></h3>
        
 
 <h4 style={{ padding: "10px 20px", textAlign: "center", color: "#bf5700", headersize: "large"}}>Input Values:</h4>
-	
  <h5 style={{ padding: "15px 325px", textAlign: "justified", color: "#bf5700"}}>
 
   <form onSubmit={this.submitMe}>
-            <label>
-             Enter file name:
+            <label> Enter file name:
             </label>
             <input type="text" name="name" value={this.state.name} onBlur={this.blur} onChange={this.change}   />
-             <label>
+            <label>
              Enter the volume of your print: 
             </label>
             <input type="text" name="volume" value={this.state.volume} onBlur={this.blur} onChange={this.volumechange}   />
@@ -96,8 +117,6 @@ class App extends Component {
             </label>
 	    <input type="var" name="cost" value={this.state.cost} onBlur={this.blur} onChange={this.costchange}   />
 	    <label>{this.state.checked}   </label>
-
-
 <label>
 It is currently  {this.state.time}. Your print, {this.state.name}, will cost {this.state.total}.</label>
               <label>{this.state.message}</label>
